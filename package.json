@@ -10,7 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-sql": "^6.8.0",
+    "@uiw/codemirror-theme-sublime": "^4.23.10",
+    "@uiw/react-codemirror": "^4.23.10",
+    "bootstrap": "^5.3.3",
+    "font-awesome": "^4.7.0",
     "react": "^19.0.0",
+    "react-csv": "^2.2.2",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {

@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import './App.css'
+import React from "react";
+import { MainProvider } from "./MainContext"; // Correct import
+import "./App.css";
+import Editor from "./editor/Editor";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-      <div>
-      Hello 
-      </div>
-  )
-}
-
-export default App
+    <MainProvider>
+     <Editor/>
+    </MainProvider>
+  );
+};
+export default App;
