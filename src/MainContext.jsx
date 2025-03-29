@@ -5,8 +5,8 @@ const MainContext = createContext(null);
 const MainProvider = ({ children }) => {
   const [query, setQuery] = useState("SELECT * FROM internetData;");
   const [queryHistory, setQueryHistory] = useState({
-    saved: ["SELECT * FROM internetData;", "SELECT id, first_name, last_name FROM internetData;"],
-    history: ["SELECT * FROM internetData;"],
+    saved: ["SELECT * FROM AtlanData;", "SELECT id, first_name, last_name FROM AtlanData;"],
+    history: ["SELECT * FROM AtlanData;"],
     outputData: [],
   });
 

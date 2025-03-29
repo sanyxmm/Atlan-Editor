@@ -2,7 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .editor-containerr{
   background: #000000e4;
@@ -71,7 +71,7 @@ padding: 0.45vw 1vw;
   font-size: 1.3vw;
 }
 .placeholder-text{
-  min-height: 40vh;
+  height: 30vh;
   width: 70vw;
   border: 1px solid black;
   margin: 0.5vw;
@@ -80,6 +80,7 @@ padding: 0.45vw 1vw;
   align-items: center;
   justify-content: center;
   border-radius: 1vw;
+  overflow-y: scroll;
  
 }
 
@@ -210,16 +211,16 @@ padding: 0.45vw 1vw;
 
 /* Table Styling */
 .query-table {
-  height: 40vh;
-  width: 71vw;
-  overflow: scroll;
+  height: 30vh;
+  width: 70vw;
+  margin: 0.5vw;
+  border-radius: 1vw;
+  overflow-y: scroll;
 }
 table {
   width: 100%;
-  height: 40vh;
   margin-left: 1vw;
-  overflow: scroll;
-  border-collapse: collapse;
+  overflow-y: scroll;
 }
 
 th, td {
