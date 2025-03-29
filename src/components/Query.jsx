@@ -34,7 +34,7 @@ const Query = (props) => {
           </div>
         ))
       ) : (
-        <div className="placeholder-text">
+        <div >
           <p>No queries found.</p>
         </div>
       )}
