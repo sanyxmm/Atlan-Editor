@@ -1,25 +1,28 @@
-import { useContext } from "react";
-import {MainContext} from "../MainContext";
+import { useContext, useState } from "react";
+import { MainContext } from "../MainContext";
 import Query from "./Query";
 
 const SideBar = () => {
   const { queryHistory } = useContext(MainContext);
+  const [openSection, setOpenSection] = useState("saved");
 
   return (
-    <div className='sidebar'>
-      <div className='sidebar-item'>
-        <h5>
-          <span className='fa fa-cloud secondary me-2'></span>{" "}
-          <span className='text-1'>Queries Available</span>
+    <div className="sidebar">
+      <div className="sidebar-heading">SQL Editor</div>
+      {/* Saved Queries Section */}
+      <div className="sidebar-item">
+        <h5 onClick={() => setOpenSection("saved")}>
+          Queries Saved 
         </h5>
-        {queryHistory ? <Query type='saved' /> : null}
+       <Query type="saved" />
       </div>
-      <div className='sidebar-item'>
-        <h5>
-          <span className='fa fa-undo secondary me-2'></span>{" "}
-          <span className='text-1'>Query History</span>
+
+      {/* Query History Section */}
+      <div className="sidebar-item">
+        <h5 onClick={() => setOpenSection("history")}>
+          Query History 
         </h5>
-        {queryHistory ? <Query type='history' /> : null}
+        <Query type="history" />
       </div>
     </div>
   );

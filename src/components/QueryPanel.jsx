@@ -2,10 +2,10 @@ import { useContext } from "react";
 import {MainContext} from "../MainContext";
 import { queryDataAlt as queryData } from "../assets/data/data";
 import { queryData2 } from "../assets/data/data";
+import '../editor/styles.css'
 
-
-const EditorPanel = () => {
-  const { query, setQueryHistory, setQuery } = useContext(MainContext);
+const QueryPanel = () => {
+    const { query, setQueryHistory, setQuery } = useContext(MainContext);
 
   const runQuery = () => {
     if (query.trim() === "") {
@@ -60,4 +60,4 @@ const EditorPanel = () => {
   );
 };
 
-export default EditorPanel;
+export default QueryPanel;

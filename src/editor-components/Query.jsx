@@ -1,18 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import {MainContext} from "../MainContext";
+import { MainContext } from "../MainContext";
 
 const Query = (props) => {
   const { setQuery, queryHistory } = useContext(MainContext);
   const [searchQuery, setSearchQuery] = useState("");
   const [list, setList] = useState(queryHistory[props.type]);
-
-  const renderQueryList = (array) => {
-    return array.map((i, index) => (
-      <div key={index} className="cursor-pointer query">
-        <code onClick={() => setQuery(i)}>{i}</code>
-      </div>
-    ));
-  };
 
   useEffect(() => {
     setList(queryHistory[props.type]);
@@ -23,23 +15,29 @@ const Query = (props) => {
       queryHistory[props.type].filter((i) =>
         i.toLowerCase().includes(searchQuery.toLowerCase())
       )
-    ); // eslint-disable-next-line
+    );
   }, [searchQuery]);
 
   return (
-    <div className='query-wrapper'>
-      <div className='search-bar'>
-        <input
-          placeholder='Search...'
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-      </div>
+    <div className="query-wrapper">
+      {/* Search Bar */}
+      <input
+        className="search-bar"
+        placeholder="Search..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+
+      {/* Query List */}
       {list.length > 0 ? (
-        renderQueryList(list)
+        list.map((i, index) => (
+          <div key={index} className="query-item" onClick={() => setQuery(i)}>
+            <code>{i}</code>
+          </div>
+        ))
       ) : (
-        <div className='placeholder-text'>
-          <span className='fa fa-exclamation-circle'></span>
+        <div className="placeholder-text">
+          <span className="fa fa-exclamation-circle"></span>
           <p>No queries found.</p>
         </div>
       )}
