@@ -1,23 +1,22 @@
-import SideBar from "../editor-components/SideBar";
-import CodeMirror from "../editor-components/CodeMirror";
-import Output from "../editor-components/Output";
+import SideBar from "../components/SideBar";
+import QueryResults from "../components/QueryResults";
+import QueryEditor from "../components/QueryEditor";
 import { MainProvider } from "../MainContext"; 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "font-awesome/css/font-awesome.min.css";
-import './styles.css'
+import "../styles.css"; // External CSS file
+
 function Editor() {
   return (
-    <div className='App-Editor'>
+    <div className="editor-containerr">
       <MainProvider>
-        <div className='content'>
-          <div className='row'>
-            <div className='col-md-3'>
+        <div className="editor-content">
+          <div className="editor-layout">
+            <aside className="sidebar-container">
               <SideBar />
-            </div>
-            <div className='col-md-9 col-12 '>
-              <CodeMirror />
-              <Output />
-            </div>
+            </aside>
+            <main className="main-content">
+              <QueryEditor />
+              <QueryResults />
+            </main>
           </div>
         </div>
       </MainProvider>

@@ -5,7 +5,7 @@ import { MainContext } from "../MainContext";
 import { queryDataAlt as queryData } from "../assets/data/data";
 import { queryData2 } from "../assets/data/data";
 
-const Editor = () => {
+const QueryEditor = () => {
   const { query, setQueryHistory, setQuery } = useContext(MainContext);
 
   const runQuery = () => {
@@ -55,7 +55,7 @@ const Editor = () => {
   return (
    <div >
      <div className="editor-container">
-      <div className="editor-heading">SQL Editor</div>
+      <div className="editor-heading">Query Preview</div>
      <div className="codeEditor">
          <CodeMirror
             value={query}
@@ -85,4 +85,4 @@ const Editor = () => {
   );
 };
 
-export default Editor;
+export default QueryEditor;

@@ -2,7 +2,24 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
+.editor-containerr{
+  background: #000000e4;
+}
+
+.editor-content {
+margin: 3vw;
+ background-color: #f8f9fa;
+ border-radius: 1vw;
+}
+
+/* Editor Layout */
+.editor-layout {
+  display: flex;
+}
+
+
 .panel-container{
 margin-top: 1.5vw;
 margin-left: 1vw;
@@ -26,6 +43,7 @@ padding: 0.45vw 1vw;
   font-size: 1.3vw;
   font-weight: bold;
   margin: 0.4vw;
+  margin-top: 1.5vw;
 }
 .cm-editor {
   background-color: #f3f3f3 !important;
@@ -67,8 +85,9 @@ padding: 0.45vw 1vw;
 
 
 .sidebar {
- height: 100vh;
-  background: #ffffff;
+ height: 92vh;
+ width: 20vw;
+ background-color: #f8f9fa;
   border-right: 2px solid #ddd;
   padding: 10px;
   transition: all 0.3s ease-in-out;

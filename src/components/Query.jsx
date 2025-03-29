@@ -20,7 +20,6 @@ const Query = (props) => {
 
   return (
     <div className="query-wrapper">
-      {/* Search Bar */}
       <input
         className="search-bar"
         placeholder="Search..."
@@ -28,7 +27,6 @@ const Query = (props) => {
         onChange={(e) => setSearchQuery(e.target.value)}
       />
 
-      {/* Query List */}
       {list.length > 0 ? (
         list.map((i, index) => (
           <div key={index} className="query-item" onClick={() => setQuery(i)}>
@@ -37,7 +35,6 @@ const Query = (props) => {
         ))
       ) : (
         <div className="placeholder-text">
-          <span className="fa fa-exclamation-circle"></span>
           <p>No queries found.</p>
         </div>
       )}
