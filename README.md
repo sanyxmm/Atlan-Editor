@@ -40,10 +40,7 @@ The application provides an intuitive interface for users to interact with struc
 - **Minimized CSS usage** – Reduced unused styles and optimized media queries.  
 - **Disabled horizontal overflow** to prevent unnecessary scrollbars on small screens.  
 
-## **How to Run the Project?**
-### **Install Dependencies**
+## **To Run the Project & Install Dependencies**
 ```sh
 npm install
-### **Start the Development Server**
-```sh
 npm run dev
