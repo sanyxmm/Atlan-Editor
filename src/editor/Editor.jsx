@@ -1,3 +1,4 @@
+import React from "react";
 import SideBar from "../components/SideBar";
 import QueryResults from "../components/QueryResults";
 import QueryEditor from "../components/QueryEditor";

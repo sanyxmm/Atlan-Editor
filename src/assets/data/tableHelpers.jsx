@@ -1,3 +1,5 @@
+import React from "react";
+
 const getTableRowsFromData = (arr) => {
   if (!Array.isArray(arr) || arr.length === 0) return null; // Handle empty or invalid array
   const keys = Object.keys(arr[0]);

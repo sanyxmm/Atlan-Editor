@@ -1,4 +1,4 @@
-import { useContext, useState, useMemo } from "react";
+import React,{ useContext, useState, useMemo } from "react";
 import { QueryHistoryContext  } from "../MainContext";
 import VirtualizedTable from "./Table";
 import { CSVLink } from "react-csv";

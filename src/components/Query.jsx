@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState, useCallback } from "react";
+import React,{ useContext, useEffect, useState, useCallback } from "react";
 import {QueryContext, QueryHistoryContext  } from "../MainContext";
 
 const Query = (props) => {
