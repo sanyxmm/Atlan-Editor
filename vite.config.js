@@ -3,26 +3,24 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  resolve: {
-    alias: {
-      '@mui/styled-engine': '@mui/styled-engine-sc',
-    },
-  },
   build: {
-    minify: 'terser', // Ensures minification
+    minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: true, // Remove console logs
+        drop_console: true,
       },
     },
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            return 'vendor'; // Split vendor code
+            return 'vendor';
           }
         },
       },
     },
+  },
+  server: {
+    compress: false, // Disable compression to test
   },
 });
