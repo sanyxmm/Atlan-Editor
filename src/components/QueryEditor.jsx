@@ -14,6 +14,11 @@ const QueryEditor = () => {
   // Use useRef to store debounced function reference
   const debouncedRunQueryRef = useRef(
     debounce((query, setQueryHistory) => {
+      setQueryHistory((prev) => ({
+        ...prev,
+        outputData,
+        history: [...prev.history, query],
+      }));
       if (!query.trim()) {
         toast.error("Oops, that was a Null Query. Please type another query.");
         return;
@@ -28,12 +33,6 @@ const QueryEditor = () => {
         toast.error("Please try the test query.");
         return;
       }
-
-      setQueryHistory((prev) => ({
-        ...prev,
-        outputData,
-        history: [...prev.history, query],
-      }));
     }, 1000)
   );
   const debouncedSaveQueryRef = useRef(
