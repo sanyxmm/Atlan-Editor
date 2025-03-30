@@ -1,11 +1,11 @@
-import React, { useContext, useCallback, useState, useEffect, useRef } from "react";
-import CodeMirror from "@uiw/react-codemirror";
+import React, { useContext, useCallback, useState, useEffect, useRef, lazy, Suspense } from "react";
 import { sql } from "@codemirror/lang-sql";
 import {QueryContext, QueryHistoryContext  } from "../MainContext";
 import { queryDataAlt as queryData, queryData2 } from "../assets/data/data";
 import { toast } from "react-toastify";
 import { debounce } from "lodash";
 
+const LazyCodeMirror = lazy(() => import("@uiw/react-codemirror"));
 const QueryEditor = () => {
   const { query, setQuery } = useContext(QueryContext);
   const { setQueryHistory } = useContext(QueryHistoryContext);
@@ -88,14 +88,16 @@ const QueryEditor = () => {
       <div className="editor-container">
         <div className="editor-heading">Query Preview</div>
         <div className="codeEditor">
-          <CodeMirror
-            value={query}
-            onChange={(value) => setQuery(value)}
-            className="code-mirror-wrapper"
-            extensions={[sql()]}
-            basicSetup={{ lineNumbers: true, matchBrackets: true, autocompletion: true }}
-            aria-label="code-editor"
-          />
+          <Suspense fallback={<div>Loading Code Editor...</div>}>
+  <LazyCodeMirror
+    value={query}
+    onChange={(value) => setQuery(value)}
+    className="code-mirror-wrapper"
+    extensions={[sql()]}
+    basicSetup={{ lineNumbers: true, matchBrackets: true, autocompletion: true }}
+    aria-label="code-editor"
+  />
+</Suspense>;
         </div>
       </div>
       <div className="panel-container">
