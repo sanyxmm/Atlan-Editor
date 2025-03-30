@@ -269,3 +269,58 @@ padding: 0.45vw 1vw;
 .MuiTablePagination-root {
   background-color: #fff;
 }
+/* Responsive Design */
+@media (max-width: 724px) {
+  .editor-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+  .codeEditor,
+  .placeholder-text,
+  .query-table {
+    width: 90vw;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .editor-content {
+    margin: 3vw;
+  }
+
+  .query-results-heading,
+  .editor-heading {
+    font-size: 5vw;
+  }
+
+  .panel-button button {
+    font-size: 3.5vw;
+    padding: 2.5vw;
+  }
+
+  .tabs {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .table-cell {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .export-btn button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
