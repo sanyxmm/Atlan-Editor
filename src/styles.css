@@ -212,6 +212,12 @@ padding: 0.45vw 1vw;
 .export-btn button:hover {
   background: #29746e;
 }
+.custom-container {
+  width: 70vw;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: scroll;
+}
 .query-table {
   width: 80vw;
   margin: 1vw auto;

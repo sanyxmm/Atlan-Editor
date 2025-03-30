@@ -20,9 +20,9 @@ const QueryEditor = () => {
       }
 
       let outputData = [];
-      if (query === "SELECT * FROM internetData;") {
+      if (query === "SELECT * FROM AtlanData;") {
         outputData = queryData;
-      } else if (query === "SELECT id, first_name, last_name FROM internetData;") {
+      } else if (query === "SELECT id, first_name, last_name FROM AtlanData;") {
         outputData = queryData2;
       } else {
         toast.error("Please try the test query.");

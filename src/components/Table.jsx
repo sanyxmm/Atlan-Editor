@@ -27,7 +27,7 @@ export const Table = ({ result = [] }) => {
   );
 
   return (
-    <Paper style={{ width: "70vw", margin: "20px auto", borderRadius: "10px", overflow: "scroll" }}>
+    <Paper  className="custom-container">
       <TableContainer style={{ maxHeight: 400 }}>
         <MuiTable stickyHeader>
           {/* Table Header */}
