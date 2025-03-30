@@ -20,6 +20,10 @@ The application provides an intuitive interface for users to interact with struc
 
 ## **Page Load Time & Measurement**
 - **Page Load Time:** ~0.6 seconds (Measured using Chrome DevTools' Performance Tab)  
+I have taken the page load time used here to be the time taken for the site to be interactive, which in all the cases shown below, falls well under Google's time specified for mobile and desktop devices. It is the most important metric from the user's standpoint in my opinion as it allows the users to start navigating the site.
+
+The Detailed Screenshots have been attached along with respective page load times in a later section of the document
+The website is hosted on Vercel, which is considered to be one of the fastest free hosting mechanisms for JavaScript based Web apps due to it's CDN and caching benefits. It also provides a free SSL during hosting that is generally better for page security, and ranking.
 - **Key Performance Metrics:**  
   - **First Contentful Paint (FCP):** ~100ms  
   - **Time to Interactive (TTI):** ~0.3s  
