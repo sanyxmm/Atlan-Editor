@@ -1,4 +1,5 @@
 # **SQL Query Editor**
+**Link to the application:** [Atlan Editor](https://atlan-editor-gamma.vercel.app/)
 
 ## **Project Overview**
 This project is a web-based SQL Query Editor that allows users to write and execute SQL queries on sample datasets.  
@@ -43,3 +44,6 @@ The application provides an intuitive interface for users to interact with struc
 ### **Install Dependencies**
 ```sh
 npm install
+### **Start the Development Server**
+```sh
+npm run dev
