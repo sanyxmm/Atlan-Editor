@@ -3,7 +3,7 @@ import QueryResults from "../components/QueryResults";
 import QueryEditor from "../components/QueryEditor";
 import { MainProvider } from "../MainContext"; 
 import "../styles.css"; // External CSS file
-
+import { ToastContainer} from 'react-toastify'
 function Editor() {
   return (
     <div className="editor-containerr">
@@ -20,6 +20,7 @@ function Editor() {
           </div>
         </div>
       </MainProvider>
+      <ToastContainer />
     </div>
   );
 }

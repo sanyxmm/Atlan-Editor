@@ -1,22 +1,29 @@
-import { useContext, useEffect, useState } from "react";
-import { MainContext } from "../MainContext";
+import { useContext, useEffect, useState, useCallback } from "react";
+import {QueryContext, QueryHistoryContext  } from "../MainContext";
 
 const Query = (props) => {
-  const { setQuery, queryHistory } = useContext(MainContext);
+  const {setQuery } = useContext(QueryContext);
+const { queryHistory } = useContext(QueryHistoryContext);
   const [searchQuery, setSearchQuery] = useState("");
-  const [list, setList] = useState(queryHistory[props.type]);
+  const [list, setList] = useState(queryHistory[props.type] || []);
 
   useEffect(() => {
-    setList(queryHistory[props.type]);
-  }, [props, queryHistory]);
+    setList(queryHistory[props.type] || []);
+  }, [queryHistory, props.type]);
 
   useEffect(() => {
-    setList(
-      queryHistory[props.type].filter((i) =>
+    const timeoutId = setTimeout(() => {
+      setList(queryHistory[props.type].filter((i) =>
         i.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    );
-  }, [searchQuery]);
+      ));
+    }, 300);  // Debounce input
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery, queryHistory, props.type]);
+
+  const handleQuerySelection = useCallback((query) => {
+    setQuery(query);
+  }, [setQuery]);
 
   return (
     <div className="query-wrapper">
@@ -29,12 +36,12 @@ const Query = (props) => {
 
       {list.length > 0 ? (
         list.map((i, index) => (
-          <div key={index} className="query-item" onClick={() => setQuery(i)}>
+          <div key={index} className="query-item" onClick={() => handleQuerySelection(i)}>
             <code>{i}</code>
           </div>
         ))
       ) : (
-        <div >
+        <div>
           <p>No queries found.</p>
         </div>
       )}

@@ -1,87 +1,113 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback, useState, useEffect, useRef } from "react";
 import CodeMirror from "@uiw/react-codemirror";
-import { sql } from "@codemirror/lang-sql"; // Install this if not available
-import { MainContext } from "../MainContext"; 
-import { queryDataAlt as queryData } from "../assets/data/data";
-import { queryData2 } from "../assets/data/data";
+import { sql } from "@codemirror/lang-sql";
+import {QueryContext, QueryHistoryContext  } from "../MainContext";
+import { queryDataAlt as queryData, queryData2 } from "../assets/data/data";
+import { toast } from "react-toastify";
+import { debounce } from "lodash";
 
 const QueryEditor = () => {
-  const { query, setQueryHistory, setQuery } = useContext(MainContext);
+  const { query, setQuery } = useContext(QueryContext);
+  const { setQueryHistory } = useContext(QueryHistoryContext);
+  const [isRunning, setIsRunning] = useState(false);
 
-  const runQuery = () => {
-    if (query.trim() === "") {
-      alert(
-        "Oops, that was a Null Query. Please type another query, or select from the ones previously saved."
-      );
-      return;
-    }
-    if (query === "SELECT * FROM internetData;") {
+  // Use useRef to store debounced function reference
+  const debouncedRunQueryRef = useRef(
+    debounce((query, setQueryHistory) => {
+      if (!query.trim()) {
+        toast.error("Oops, that was a Null Query. Please type another query.");
+        return;
+      }
+
+      let outputData = [];
+      if (query === "SELECT * FROM internetData;") {
+        outputData = queryData;
+      } else if (query === "SELECT id, first_name, last_name FROM internetData;") {
+        outputData = queryData2;
+      } else {
+        toast.error("Please try the test query.");
+        return;
+      }
+
       setQueryHistory((prev) => ({
         ...prev,
-        outputData: queryData,
+        outputData,
+        history: [...prev.history, query],
       }));
-    } 
-    else if (query === "SELECT id, first_name, last_name FROM internetData;") {
+    }, 1000)
+  );
+  const debouncedSaveQueryRef = useRef(
+    debounce((query, setQueryHistory) => {
+      if (!query.trim()) {
+        toast.error("Query can't be null");
+        return;
+      }
+  
       setQueryHistory((prev) => ({
         ...prev,
-        outputData: queryData2,
+        saved: [...prev.saved, query],
       }));
-    } 
-    else {
-      alert("Please try the test query.");
-    }
-    setQueryHistory((prev) => ({
-      ...prev,
-      history: [...prev.history, query],
-    }));
-  };
+      toast.success("Query Saved");
+    }, 1000)
+  );
 
-  const saveQuery = () => {
-    if (query.trim() === "") {
-      alert("Query can't be null");
-      return;
-    }
+  const runQuery = useCallback(() => {
+    setIsRunning(true);
+    debouncedRunQueryRef.current(query, setQueryHistory);
+    setTimeout(() => setIsRunning(false), 1100); // Ensures `isRunning` resets after debounce
+  }, [query, setQueryHistory]);
 
-    setQueryHistory((prev) => ({
-      ...prev,
-      saved: [...prev.saved, query],
-    }));
-  };
+  const saveQuery = useCallback(() => {
+    debouncedSaveQueryRef.current(query, setQueryHistory);
+  }, [query, setQueryHistory]);
 
-  const clearQuery = () => {
-    setQuery("");
-  };
+  const clearQuery = useCallback(
+    debounce(() => {
+      setQuery("");
+    }, 1000),
+    [setQuery]
+  );
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.ctrlKey) {
+        event.preventDefault();
+        if (event.key === "s") saveQuery();
+        else if (event.key === "r") runQuery();
+        else if (event.key === "d") clearQuery();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [saveQuery, clearQuery, runQuery]);
 
   return (
-   <div >
-     <div className="editor-container">
-      <div className="editor-heading">Query Preview</div>
-     <div className="codeEditor">
-         <CodeMirror
+    <div>
+      <div className="editor-container">
+        <div className="editor-heading">Query Preview</div>
+        <div className="codeEditor">
+          <CodeMirror
             value={query}
             onChange={(value) => setQuery(value)}
             className="code-mirror-wrapper"
             extensions={[sql()]}
-           
-            basicSetup={{
-              lineNumbers: true,
-              matchBrackets: true,
-              autocompletion: true,
-            }}
+            basicSetup={{ lineNumbers: true, matchBrackets: true, autocompletion: true }}
             aria-label="code-editor"
           />
+        </div>
+      </div>
+      <div className="panel-container">
+        <div>What would you like to do next?</div>
+        <div className="panel-button">
+          <button onClick={runQuery}>{isRunning ? "Running..." : "Run Query"}</button>
+          <button onClick={saveQuery}>Save Query</button>
+          <button onClick={clearQuery}>Clear</button>
+        </div>
+      </div>
     </div>
-     </div>
-    <div className="panel-container">
-    <div>What would u like to do next?</div>
-    <div className='panel-button'>
-      <button onClick={() => runQuery()}>Run Query</button>
-      <button onClick={() => saveQuery()}>Save Query</button>
-      <button onClick={() => clearQuery()}>Clear</button>
-    </div> 
-    </div>
-     
-   </div>
   );
 };
 
