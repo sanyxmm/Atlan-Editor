@@ -1,10 +1,10 @@
-**SQL Query Editor - README**
-**-> Project Overview**
+# SQL Query Editor
+##-> Project Overview##
 This project is a web-based SQL Query Editor that allows users to write and execute SQL queries on sample datasets.
 It includes a code editor, query results display, and query history tracking. 
 The application provides an intuitive interface for users to interact with structured data efficiently.
 
-**Tech Stack & Libraries Used**
+#Tech Stack & Libraries Used##
 React.js – The primary framework used for building the UI.
 React Context API – Manages global state for queries and query history.
 react-csv – Enables exporting query results to CSV format.
