@@ -44,12 +44,6 @@ The website is hosted on Vercel, which is considered to be one of the fastest fr
 - **Minimized CSS usage** – Reduced unused styles and optimized media queries.  
 - **Disabled horizontal overflow** to prevent unnecessary scrollbars on small screens.  
 
-## **To Run the Project & Install Dependencies**
-```sh
-npm install
-npm run dev
-
-
 ##**Screenshots**
 ![Screenshot 2025-03-30 194552](https://github.com/user-attachments/assets/441cf24c-89fc-4be4-a7fb-0f9967b9f2fa)
 ![Screenshot 2025-03-30 194600](https://github.com/user-attachments/assets/dbc1fc5c-50e1-46a1-8c51-c4cd7125fa9a)
@@ -59,6 +53,11 @@ npm run dev
 ![Screenshot 2025-03-30 194811](https://github.com/user-attachments/assets/f87e7b73-9798-4cf0-8f9b-432e10736603)
 ![Screenshot 2025-03-30 194816](https://github.com/user-attachments/assets/7ca51069-078f-4db1-9e96-a41514c077d7)
 
+
+## **To Run the Project & Install Dependencies**
+```sh
+npm install
+npm run dev
 
 
 
