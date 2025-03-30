@@ -48,3 +48,20 @@ The website is hosted on Vercel, which is considered to be one of the fastest fr
 ```sh
 npm install
 npm run dev
+
+
+##**Screenshots**
+![Screenshot 2025-03-30 194552](https://github.com/user-attachments/assets/441cf24c-89fc-4be4-a7fb-0f9967b9f2fa)
+![Screenshot 2025-03-30 194600](https://github.com/user-attachments/assets/dbc1fc5c-50e1-46a1-8c51-c4cd7125fa9a)
+![Screenshot 2025-03-30 194608](https://github.com/user-attachments/assets/2d402c93-932e-4903-87e4-d597fa6b8979)
+![Screenshot 2025-03-30 194614](https://github.com/user-attachments/assets/0c252c14-e0d4-49e7-b420-1bd57bfacc0c)
+![Screenshot 2025-03-30 194800](https://github.com/user-attachments/assets/bb03e28a-1c0f-4fa9-a795-27842ca802d6)
+![Screenshot 2025-03-30 194811](https://github.com/user-attachments/assets/f87e7b73-9798-4cf0-8f9b-432e10736603)
+![Screenshot 2025-03-30 194816](https://github.com/user-attachments/assets/7ca51069-078f-4db1-9e96-a41514c077d7)
+
+
+
+
+
+
+
