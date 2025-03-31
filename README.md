@@ -53,6 +53,8 @@ The website is hosted on Vercel, which is considered to be one of the fastest fr
 ![Screenshot 2025-03-30 194811](https://github.com/user-attachments/assets/f87e7b73-9798-4cf0-8f9b-432e10736603)
 ![Screenshot 2025-03-30 194816](https://github.com/user-attachments/assets/7ca51069-078f-4db1-9e96-a41514c077d7)
 
+##**page load time (lighthouse)**
+![Screenshot 2025-03-30 183617](https://github.com/user-attachments/assets/a6349c1c-e1e5-44b1-b806-8fb4ad66b554)
 
 ## **To Run the Project & Install Dependencies**
 ```sh
