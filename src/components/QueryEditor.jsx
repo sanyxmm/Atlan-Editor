@@ -97,7 +97,7 @@ const QueryEditor = () => {
     basicSetup={{ lineNumbers: true, matchBrackets: true, autocompletion: true }}
     aria-label="code-editor"
   />
-</Suspense>;
+</Suspense>
         </div>
       </div>
       <div className="panel-container">

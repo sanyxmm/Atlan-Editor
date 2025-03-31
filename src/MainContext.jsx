@@ -21,7 +21,7 @@ const QueryHistoryContext = createContext(null);
 const QueryHistoryProvider = ({ children }) => {
   const [queryHistory, setQueryHistory] = useState({
     saved: ["SELECT * FROM AtlanData;", "SELECT id, first_name, last_name FROM AtlanData;"],
-    history: ["SELECT * FROM tlanData;"],
+    history: ["SELECT * FROM AtlanData;"],
     outputData: [],
   });
 
